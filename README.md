@@ -1,4 +1,4 @@
-# 🔥 FkTube — *kya karne aaya hai bsdk, kaam karle na*
+# 🔥 FkTube — *kya timepas kar rha hai yaawr, kaam karle na*
 
 A Chrome/Edge/Brave extension that turns **YouTube** and **Instagram** into a **task list + daily planner**, enforces a **daily watch-time limit**, and **blocks adult sites** — so you actually get un-addicted and get your work done.
 
