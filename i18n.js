@@ -1,0 +1,196 @@
+/* ============================================================
+   i18n — 3 languages: hi (Devanagari, default), hn (Hinglish), en (English)
+   Exposed as global FK_I18N. Used by content.js, popup.js, block.html
+   ============================================================ */
+(function (root) {
+  const STR = {
+    hi: {
+      _name: "हिंदी",
+      title: "क्या करने आया है बे, काम कर ले ना",
+      tagline: "काम पहले, टाइमपास बाद में।",
+      export: "बैकअप",
+      import: "इम्पोर्ट",
+      escape: "मुझे सच में यूट्यूब चाहिए",
+      streak: "दिन की स्ट्रीक",
+      doneToday: "आज पूरे किए",
+      timeSaved: "आज बचाया वक़्त",
+      progress: "प्रगति",
+      tasks: "काम (Tasks)",
+      taskPlaceholder: "क्या करना है? लिख और Enter दबा…",
+      add: "जोड़ो",
+      noTasks: "कोई काम नहीं। एक तो लिख, फिर देख कमाल 🚀",
+      doneTasks: "पूरे किए हुए काम",
+      planner: "आज का प्लानर",
+      planPlaceholder: "इस समय क्या…",
+      noPlan: "आज का प्लान बना। टाइम-ब्लॉक करके दिन जीत ले 💪",
+      focusTimer: "फोकस टाइमर",
+      work: "काम",
+      break: "आराम",
+      start: "शुरू",
+      pause: "रोको",
+      reset: "रीसेट",
+      done: "पूरे",
+      footer: "तेरा वक़्त बचाने के लिए बना ·",
+      watchBanner: "फोकस मोड ऑन · सिर्फ़ यही वीडियो",
+      stopBtn: "रुको, काम पे वापस",
+      // watch-limit / quit overlay
+      limitTitle: "बस! आज का यूट्यूब कोटा खत्म ⏰",
+      limitSub: "भाई, {min} मिनट हो गए। अब सच में — क्या तूने कुछ काम का किया?",
+      qProductive: "अभी तक क्या प्रोडक्टिव किया आज?",
+      qTask: "कौन सा काम पूरा हुआ?",
+      quit: "बस, बंद करो — काम पे जाता हूँ 🔥",
+      continue: "प्लीज़ भाई, थोड़ा और…",
+      continuePrompt: "कितने मिनट और? (सच बता, फिर हार्ड स्टॉप)",
+      hardStopNote: "इसके बाद पक्का बंद। कोई बहाना नहीं।",
+      escFriction: "5 सेकंड रुक… सोच ले भाई।",
+      escReason: "एक लाइन में लिख — क्यों चाहिए यूट्यूब अभी?",
+      langLabel: "भाषा",
+      // block page
+      blockTitle: "रुक जा भाई 🛑",
+      blockSub: "यहाँ कुछ नहीं रखा। ये तुझे कमज़ोर बना रहा है, मज़बूत नहीं।",
+      blockLine: "असली मज़ा तब आएगा जब तेरे सपने पूरे होंगे, इस स्क्रीन पर नहीं।",
+      blockBtn: "ठीक है, काम पे चलता हूँ",
+      blockMeme: "तेरा future तुझे देख रहा है 👀 शर्मिंदा मत कर।"
+    },
+    hn: {
+      _name: "Hinglish",
+      title: "kya karne aaya hai bsdk, kaam karle na",
+      tagline: "Kaam pehle, timepass baad me.",
+      export: "Export",
+      import: "Import",
+      escape: "Mujhe sach me YouTube chahiye",
+      streak: "Day streak",
+      doneToday: "Done today",
+      timeSaved: "Waqt bacha aaj",
+      progress: "Progress",
+      tasks: "Tasks",
+      taskPlaceholder: "Kya karna hai? Type kar aur Enter dabaa…",
+      add: "Add",
+      noTasks: "Koi task nahi. Ek toh likh, phir dekh magic 🚀",
+      doneTasks: "Done tasks",
+      planner: "Aaj ka Planner",
+      planPlaceholder: "Iss time pe kya…",
+      noPlan: "Aaj ka plan bana. Time-block kar ke jeet le din 💪",
+      focusTimer: "Focus Timer",
+      work: "Work",
+      break: "Break",
+      start: "Start",
+      pause: "Pause",
+      reset: "Reset",
+      done: "done",
+      footer: "Tera time bachane ke liye bana ·",
+      watchBanner: "Focus mode on · sirf yeh video",
+      stopBtn: "Ruk, kaam pe wapas",
+      limitTitle: "Bas! Aaj ka YouTube quota khatam ⏰",
+      limitSub: "Bhai, {min} min ho gaye. Ab sach bata — kuch kaam ka kiya?",
+      qProductive: "Ab tak kya productive kiya aaj?",
+      qTask: "Kaunsa task complete hua?",
+      quit: "Bas, band karo — kaam pe jaata hoon 🔥",
+      continue: "Please bhai, thoda aur…",
+      continuePrompt: "Kitne min aur? (sach bata, phir hard stop)",
+      hardStopNote: "Iske baad pakka band. Koi bahana nahi.",
+      escFriction: "5 second ruk… soch le bhai.",
+      escReason: "Ek line me likh — kyun chahiye YouTube abhi?",
+      langLabel: "Language",
+      blockTitle: "Ruk ja bhai 🛑",
+      blockSub: "Yahan kuch nahi rakha. Ye tujhe kamzor bana raha hai, mazboot nahi.",
+      blockLine: "Asli maza tab aayega jab tere sapne poore honge, iss screen pe nahi.",
+      blockBtn: "Theek hai, kaam pe chalta hoon",
+      blockMeme: "Tera future tujhe dekh raha hai 👀 sharminda mat kar."
+    },
+    en: {
+      _name: "English",
+      title: "what did you come to do? go do your work",
+      tagline: "Work first, timepass later.",
+      export: "Export",
+      import: "Import",
+      escape: "I really need YouTube",
+      streak: "Day streak",
+      doneToday: "Done today",
+      timeSaved: "Time saved today",
+      progress: "Progress",
+      tasks: "Tasks",
+      taskPlaceholder: "What needs doing? Type and hit Enter…",
+      add: "Add",
+      noTasks: "No tasks yet. Write one and watch the magic 🚀",
+      doneTasks: "Done tasks",
+      planner: "Today's Planner",
+      planPlaceholder: "What at this time…",
+      noPlan: "Plan your day. Time-block it and win 💪",
+      focusTimer: "Focus Timer",
+      work: "Work",
+      break: "Break",
+      start: "Start",
+      pause: "Pause",
+      reset: "Reset",
+      done: "done",
+      footer: "Built to save your time ·",
+      watchBanner: "Focus mode on · just this video",
+      stopBtn: "Stop, back to work",
+      limitTitle: "That's it! Today's YouTube quota is over ⏰",
+      limitSub: "Hey, {min} min are up. Be honest — did you get real work done?",
+      qProductive: "What productive thing did you do today?",
+      qTask: "Which task did you complete?",
+      quit: "Done, closing it — back to work 🔥",
+      continue: "Please, just a little more…",
+      continuePrompt: "How many more minutes? (be honest, then hard stop)",
+      hardStopNote: "After this it's a hard stop. No excuses.",
+      escFriction: "Wait 5 seconds… think about it.",
+      escReason: "In one line — why do you need YouTube right now?",
+      langLabel: "Language",
+      blockTitle: "Stop right there 🛑",
+      blockSub: "Nothing for you here. This makes you weaker, not stronger.",
+      blockLine: "The real high comes when your dreams come true, not on this screen.",
+      blockBtn: "Okay, back to work",
+      blockMeme: "Your future self is watching 👀 don't let them down."
+    }
+  };
+
+  // Meme-style rotating motivation per language
+  const MEMES = {
+    hi: [
+      "स्क्रॉल करके आज तक किसी का भला नहीं हुआ। काम कर ले।",
+      "Reels देखेगा तो reel life जिएगा, real life कौन जिएगा?",
+      "1 घंटा यूट्यूब = 1 घंटा ज़िंदगी कम। सोच ले।",
+      "Winners काम करते हैं, losers 'बस एक और वीडियो' बोलते हैं।",
+      "Motivation नहीं, discipline चाहिए। उठ और काम कर।",
+      "तेरे सपने बड़े हैं तो नींद छोड़नी पड़ेगी, यूट्यूब तो छोटी बात है।",
+      "Dopamine सस्ता मत कर, काम से कमा।",
+      "जितना टाइम ये पढ़ने में लगाया, उतने में एक काम हो जाता।"
+    ],
+    hn: [
+      "Scroll karke aaj tak kisi ka bhala nahi hua. Kaam kar le.",
+      "Reels dekhega toh reel life jiyega, real life kaun jiyega?",
+      "1 ghanta YouTube = 1 ghanta zindagi kam. Soch le.",
+      "Winners kaam karte hai, losers 'bas ek aur video' bolte hai.",
+      "Motivation nahi, discipline chahiye. Uth aur kaam kar.",
+      "Sapne bade hai toh neend chhodni padegi, YouTube toh chhoti baat.",
+      "Dopamine sasta mat kar, kaam se kama.",
+      "Jitna time ye padhne me lagaya, utne me ek kaam ho jata."
+    ],
+    en: [
+      "Nobody ever got better by scrolling. Go do the work.",
+      "Watch reels and you'll live a reel life. Who lives the real one?",
+      "1 hour of YouTube = 1 hour less of your life. Think.",
+      "Winners work, losers say 'just one more video'.",
+      "You don't need motivation, you need discipline. Get up.",
+      "Big dreams cost sleep. YouTube is the easy thing to drop.",
+      "Don't buy cheap dopamine. Earn it through work.",
+      "You spent enough time reading this to finish a task."
+    ]
+  };
+
+  root.FK_I18N = {
+    langs: ["hi", "hn", "en"],
+    names: { hi: STR.hi._name, hn: STR.hn._name, en: STR.en._name },
+    t(lang, key) { return (STR[lang] && STR[lang][key]) || STR.hn[key] || key; },
+    meme(lang, idx) {
+      const arr = MEMES[lang] || MEMES.hn;
+      return arr[idx % arr.length];
+    },
+    memeRandom(lang) {
+      const arr = MEMES[lang] || MEMES.hn;
+      return arr[Math.floor(Math.random() * arr.length)];
+    }
+  };
+})(typeof window !== "undefined" ? window : globalThis);

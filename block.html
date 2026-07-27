@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ruk ja bhai 🛑</title>
+<style>
+  :root{
+    --accent:#ff4d4d; --accent2:#ff9e40; --violet:#8b5cf6; --text:#f4f4f7; --muted:#a6accb;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html,body{height:100%;}
+  body{
+    font-family:"Segoe UI Variable Display","Segoe UI",system-ui,-apple-system,"Nirmala UI",sans-serif;
+    color:var(--text);
+    background:#06060b;
+    overflow:hidden;
+    display:grid;place-items:center;
+    position:relative;
+  }
+  .aurora{
+    position:fixed;inset:-20%;pointer-events:none;filter:blur(40px);
+    background:
+      radial-gradient(600px 600px at 20% 20%,rgba(255,77,77,.25),transparent 60%),
+      radial-gradient(700px 700px at 80% 70%,rgba(139,92,246,.22),transparent 60%),
+      radial-gradient(500px 500px at 60% 10%,rgba(255,158,64,.18),transparent 60%);
+    animation:float 16s ease-in-out infinite alternate;
+  }
+  @keyframes float{from{transform:translate3d(0,0,0) scale(1)}to{transform:translate3d(-40px,30px,0) scale(1.1)}}
+  .card{
+    position:relative;z-index:1;max-width:640px;margin:24px;padding:48px 44px;text-align:center;
+    border-radius:32px;
+    background:linear-gradient(160deg,rgba(255,255,255,.09),rgba(255,255,255,.03));
+    border:1px solid rgba(255,255,255,.14);
+    box-shadow:0 30px 90px rgba(0,0,0,.6), inset 0 1px 0 rgba(255,255,255,.25);
+    backdrop-filter:blur(30px) saturate(160%);
+    -webkit-backdrop-filter:blur(30px) saturate(160%);
+    animation:pop .5s cubic-bezier(.2,.9,.2,1);
+  }
+  @keyframes pop{from{opacity:0;transform:translateY(20px) scale(.96)}to{opacity:1;transform:none}}
+  .emoji{font-size:72px;line-height:1;margin-bottom:12px;filter:drop-shadow(0 8px 24px rgba(255,77,77,.4));}
+  h1{
+    font-size:clamp(32px,6vw,52px);font-weight:900;letter-spacing:-1px;line-height:1.05;margin-bottom:16px;
+    background:linear-gradient(90deg,#fff,#ffd0c0 45%,#d9c7ff);
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+  }
+  .sub{font-size:20px;font-weight:700;color:#ffb9b9;margin-bottom:10px;}
+  .line{font-size:16px;color:var(--muted);line-height:1.6;margin-bottom:22px;max-width:520px;margin-left:auto;margin-right:auto;}
+  .meme{
+    font-size:15px;font-style:italic;color:var(--accent2);font-weight:700;
+    padding:14px 18px;border-radius:16px;margin-bottom:28px;
+    background:rgba(255,158,64,.08);border:1px solid rgba(255,158,64,.2);
+  }
+  .btn{
+    display:inline-block;cursor:pointer;border:none;
+    font-family:inherit;font-size:17px;font-weight:800;color:#1a0a00;
+    padding:16px 30px;border-radius:18px;
+    background:linear-gradient(135deg,var(--accent),var(--accent2));
+    box-shadow:0 12px 30px rgba(255,77,77,.4), inset 0 1px 0 rgba(255,255,255,.5);
+    transition:transform .14s ease, box-shadow .2s;
+  }
+  .btn:hover{transform:translateY(-3px);box-shadow:0 18px 40px rgba(255,77,77,.5);}
+  .btn:active{transform:translateY(-1px);}
+  .host{margin-top:22px;font-size:12px;color:#5a5f78;font-family:ui-monospace,monospace;}
+  .lang{position:fixed;top:18px;right:20px;z-index:2;display:flex;gap:6px;}
+  .lang button{
+    background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);color:var(--muted);
+    font-family:inherit;font-size:12px;font-weight:700;padding:6px 12px;border-radius:99px;cursor:pointer;transition:.2s;
+  }
+  .lang button.active{background:rgba(255,255,255,.16);color:#fff;}
+</style>
+</head>
+<body>
+  <div class="aurora"></div>
+  <div class="lang" id="lang"></div>
+  <div class="card">
+    <div class="emoji">🛑</div>
+    <h1 id="t-title"></h1>
+    <div class="sub" id="t-sub"></div>
+    <p class="line" id="t-line"></p>
+    <div class="meme" id="t-meme"></div>
+    <button class="btn" id="t-btn"></button>
+    <div class="host" id="host"></div>
+  </div>
+  <script src="i18n.js"></script>
+  <script src="block.js"></script>
+</body>
+</html>

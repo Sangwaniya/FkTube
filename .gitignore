@@ -1,0 +1,16 @@
+# Chrome-generated when loading the unpacked extension
+_metadata/
+
+# Local tooling / editor config
+.claude/
+.vscode/
+.idea/
+
+# OS junk
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Logs / temp
+*.log
+node_modules/
